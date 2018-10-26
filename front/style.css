@@ -1,0 +1,21 @@
+html, body {
+	margin: 5px;
+	padding: 0;
+}
+
+h1 {
+	margin-left: 36px
+}
+
+img {
+	margin-left: 45px
+}
+
+ul {
+	list-style-type:none;
+}
+
+li {
+	width:200px;
+/*	word-break:keep-all;*/
+}
