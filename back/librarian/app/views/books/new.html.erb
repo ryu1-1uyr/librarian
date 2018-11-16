@@ -1,5 +1,16 @@
 <h1>New Book</h1>
 
-<%= render 'form', book: @book %>
+<%= form_tag("/books#new", :method=> :post) do %>
+	Title:<input name="title">
+	<br>
+	Price:<input name="price">
+	<br>
+	Image:<input name="image">
+	<br>
+	Pages:<input name="pages">
+	<br>
+	<input type="submit" value="登録">
+	<br>
+<% end %>
 
 <%= link_to 'Back', books_path %>

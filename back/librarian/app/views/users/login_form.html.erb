@@ -1,0 +1,12 @@
+<h1><p><strong>Login</strong></p></h1>
+
+<% if @error_message %>
+	<%= @error_message %>
+<% end %>
+<%= form_tag("login") do %>
+	email:<input type="email" name="email" value=<%= @email %> >
+	<br>
+	password:<input type="password" name="password" value=<%= @password %> >
+	<br>
+	<input type="submit" value="ログイン">
+<% end %>

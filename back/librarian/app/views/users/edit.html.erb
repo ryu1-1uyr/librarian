@@ -1,0 +1,15 @@
+<h1>Editing User</h1>
+
+<%= form_tag("/users/#{@user.id}/edit",:method => :post) do %>
+	name:<input name="name" value="<%= @user.name %>">
+	<br>
+	email:<input type="email" name="email" value="<%= @user.email %>">
+	<br>
+	password:<input type="password" name="password" value="<%= @user.password %>">
+	<br>
+	<input type="submit" value="変更">
+	<br>
+<% end %>
+
+<%= link_to("Index","/users") %> | 
+<%= link_to("Show","/users/#{@user.id}") %>
