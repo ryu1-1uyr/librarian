@@ -13,7 +13,7 @@ let app = new Vue ({
 	},
 	methods: {
 		getInfo: () => {
-			axios.get(app.url + app.word) // isbn:4043898010
+			axios.get(app.url + app.word)
 			.then( (res) => {
 				app.title = res.data.items[0].volumeInfo.title
 				app.author = res.data.items[0].volumeInfo.authors[0]
