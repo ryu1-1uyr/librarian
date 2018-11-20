@@ -16,7 +16,7 @@
 </p>
 
 
-<%= link_to("Index","/users") %> | 
+<%= link_to("Index","/books") %> | 
 <% if @user.id == @current_user.id %>
 	<%= link_to("Edit","/users/#{@user.id}/edit") %>
 <% end %>
