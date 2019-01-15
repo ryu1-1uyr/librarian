@@ -1,6 +1,16 @@
 <h1>Editing User</h1>
 
 <%= form_tag("/users/#{@user.id}/edit",:method => :post) do %>
+	<% if @user.errors.any? %>
+		<div id="error_explanation" class="alert alert-danger">
+		<h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+			<ul>
+				<% @user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 	name:<input name="name" value="<%= @user.name %>">
 	<br>
 	email:<input type="email" name="email" value="<%= @user.email %>">

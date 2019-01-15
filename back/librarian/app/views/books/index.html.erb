@@ -9,6 +9,8 @@
 			<th>Price</th>
 			<th>Image</th>
 			<th>Pages</th>
+			<th>Read Pages</th>
+			<th>Comment</th>
 			<th colspan="3"></th>
 		</tr>
 	</thead>
@@ -20,6 +22,8 @@
 				<td><%= book.price %></td>
 				<td><%= book.image %></td>
 				<td><%= book.pages %></td>
+				<td><%= book.read_pages %></td>
+				<td><%= book.comment %></td>
 				<td><%= link_to 'Show', book %></td>
 				<td><%= link_to 'Edit', edit_book_path(book) %></td>
 				<td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

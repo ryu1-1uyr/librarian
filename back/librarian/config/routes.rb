@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 	post "login" => "users#login"
 	post "logout" => "users#logout"
 	post "/users/:id/edit" => "users#update"
+	get "/top" => "users#about_app"
+	root to: "users#about_app"
 end

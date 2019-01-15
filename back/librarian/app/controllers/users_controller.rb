@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	before_action :set_user, {only: [:index,:show,:edit,:update]}
+	protect_from_forgery prepend: true, with: :exception
+	before_action :set_user, {only: [:index,:show,:edit,:update,:destroy]}
 	before_action :authenticate_user, {only: [:index,:show,:edit,:update]}
 	before_action :forbid_login_user, {only: [:new,:create,:login_form,:login]}
 	before_action :ensure_correct_user, {only: [:edit,:update]}
@@ -63,8 +64,8 @@ class UsersController < ApplicationController
 	end
 	
 	def login
-		@user = Users.find_by(email: params[:email], password: params[:password])
-		if @user
+		@user = Users.find_by(email: params[:email])
+		if @user && @user.authenticate(params[:password])
 			session[:user_id] = @user.id
 			flash[:notice] = "ログインしました"
 			redirect_to("/books")
@@ -90,7 +91,9 @@ class UsersController < ApplicationController
 		end
 	end
 	
-	
+	def about
+		
+	end
 	
 	
 	
