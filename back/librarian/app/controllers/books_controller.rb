@@ -6,12 +6,13 @@ class BooksController < ApplicationController
 	# GET /books.json
 	def index
 		@books = Book.where(user_id: @current_user.id)
+		render :json => @books
 	end
 
 	# GET /books/1
 	# GET /books/1.json
 	def show
-#		render :json => @book
+		render :json => @book
 	end
 
 	# GET /books/new
