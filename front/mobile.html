@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <meta name="format-detection" content="telephone=no">
+  <title>mobile test</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+  crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex"></script>
+  <script src="https://unpkg.com/vue-onsenui@2.6.2/dist/vue-onsenui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <template id="main">
+    <v-ons-page>
+      <h1 class="text-center" style="margin:0;">Librarian</h1>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6 col-md my-2">
+            <div class="card float-right" style="width: 20rem;">
+              <img class="card-img" src="http://books.google.com/books/content?id=e26_cQAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api" alt="Card image cap">
+              <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                <h5 class="card-title">香水</h5>
+                <h6 class="card-text">パトリック・ジュースキント</h6>
+                <!-- <p class="card-text">18世紀のパリ。孤児のグルヌイユは生まれながらに図抜けた嗅覚を与えられていた。真の闇夜でさえ匂いで自在に歩める。異才はやがて香水調合師としてパリ中を陶然とさせる。さらなる芳香を求めた男は、ある日、処女の体臭に我を忘れる。この匂いをわがものに...欲望のほむらが燃えあがる。稀代の“匂いの魔術師”をめぐる大奇譚。</p> -->
+                <p class="card-text">価格:</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md my-2">
+            <div class="card float-left" style="width: 20rem;">
+              <img class="card-img" src="http://books.google.com/books/content?id=lYhqDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api" alt="Card image cap">
+              <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                <h5 class="card-title">女王の百年密室</h5>
+                <h6 class="card-text">森博嗣</h6>
+                <!-- <p class="card-text">旅の途中で道に迷ったサエバ・ミチルとウォーカロンのロイディは、高い城壁に囲まれた街に辿りつく。高貴な美しさを持つ女王・デボウ・スホの統治の下、百年の間、完全に閉ざされていたその街で殺人が起きる。時は二一一三年、謎と秘密に満ちた壮大な密室を舞台に生と死の本質に迫る、伝説の百年シリーズ第一作。</p> -->
+                <p class="card-text">価格:950JPY</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" v-if="showRow">
+          <div class="col-6 my-2" v-if="showLeft">
+            <div class="card float-right" style="width: 20rem;">
+              <img class="card-img" :src="cover" alt="Card image cap">
+              <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                <h5 class="card-title">{{ title }}</h5>
+                <h6 class="card-text">{{ author }}</h6>
+                <!-- <p class="card-text">正義の味方、図書館を駆ける!―公序良俗を乱し人権を侵害する表現を取り締まる法律として『メディア良化法』が成立・施行された現代。超法規的検閲に対抗するため、立てよ図書館!狩られる本を、明日を守れ。</p> -->
+                <p class="card-text">{{ price }}JPY</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 my-2" v-if="showRight">
+            <div class="card float-right" style="width: 20rem;">
+              <img class="card-img" :src="cover" alt="Card image cap">
+              <div class="card-img-overlay h-100 d-flex flex-column justify-content-end">
+                <h5 class="card-title">{{ title }}</h5>
+                <h6 class="card-text">{{ author }}</h6>
+                <!-- <p class="card-text">正義の味方、図書館を駆ける!―公序良俗を乱し人権を侵害する表現を取り締まる法律として『メディア良化法』が成立・施行された現代。超法規的検閲に対抗するため、立てよ図書館!狩られる本を、明日を守れ。</p> -->
+                <p class="card-text">{{ price }}JPY</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col-6 my-2">
+            <div class="card float-right" style="width: 20rem;">
+              <img class="card-img" src="http://books.google.com/books/content?id=_5AqnAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api" alt="Card image cap">
+              <div class="card-img-overlay">
+                <h5 class="card-title">図書館戦争</h5>
+                <h6 class="card-text">有川浩</h6>
+                <p class="card-text">正義の味方、図書館を駆ける!―公序良俗を乱し人権を侵害する表現を取り締まる法律として『メディア良化法』が成立・施行された現代。超法規的検閲に対抗するため、立てよ図書館!狩られる本を、明日を守れ。</p>
+                <p class="card-text">価格:</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 my-2">
+            <div class="card float-left" style="width: 20rem;">
+              <img class="card-img" src="http://books.google.com/books/content?id=_5AqnAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api" alt="Card image cap">
+              <div class="card-img-overlay">
+                <h5 class="card-title">図書館戦争</h5>
+                <h6 class="card-text">有川浩</h6>
+                <p class="card-text">正義の味方、図書館を駆ける!―公序良俗を乱し人権を侵害する表現を取り締まる法律として『メディア良化法』が成立・施行された現代。超法規的検閲に対抗するため、立てよ図書館!狩られる本を、明日を守れ。</p>
+                <p class="card-text">価格:</p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    <v-ons-fab position="bottom right"
+      @click="$ons.notification.prompt('book name?')
+      .then((res) => {
+        query = res;
+        getInfo();
+        showRow = true;
+        showLeft ? showRight = true : showLeft = true;
+      });"
+      >
+      <v-ons-icon icon="md-collection-bookmark"></v-ons-icon>
+    </v-ons-fab>
+
+    <!-- <v-ons-dialog
+    cancelable
+    :visible.sync="dialogVisible"
+    >
+    <p style="text-align: center">Lorem ipsum</p>
+    <v-ons-input class="center" placeholder="Input book title" float v-model="query">
+  </v-ons-input>
+</v-ons-dialog> -->
+</v-ons-page>
+</template>
+
+<div id="app"></div>
+
+<script>
+
+let app = new Vue({
+  el: '#app',
+  template: '#main',
+  data: {
+    title  : null,
+    author : null,
+    cover  : null,
+    price  : null,
+    code   : "",
+    description : null,
+    url      : 'https://www.googleapis.com/books/v1/volumes?q=',
+    query    : null,
+    showRow  : false,
+    showLeft : false,
+    showRight: false
+  },
+  methods: {
+    getInfo: () => {
+      axios.get(app.url + app.query)
+      .then( (res) => {
+        app.title = res.data.items[0].volumeInfo.title
+        app.author = res.data.items[0].volumeInfo.authors[0]
+        app.description = res.data.items[0].volumeInfo.description
+        app.cover = res.data.items[0].volumeInfo.imageLinks.smallThumbnail
+        if (res.data.items[0].saleInfo.saleability == "FOR_SALE") {
+          app.price = res.data.items[0].saleInfo.retailPrice.amount
+          app.code = res.data.items[0].saleInfo.retailPrice.currencyCode
+        } else {
+          app.price = "未掲載"
+          app.code = ""
+        }
+      })
+    }
+  }
+});
+</script>
+</body>
+</html>

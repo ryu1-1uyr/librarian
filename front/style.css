@@ -1,14 +1,15 @@
-html, body {
-	margin: 5px;
-	padding: 0;
+body {
+	width:750px;
+}
+
+.container, .container-fluid {
+	background-color: gray;
 }
 
 h1 {
-	margin-left: 36px
-}
-
-img {
-	margin-left: 45px
+	color: white;
+	background-color: #47266e;
+	margin:0;
 }
 
 ul {
@@ -18,4 +19,29 @@ ul {
 li {
 	width:200px;
 /*	word-break:keep-all;*/
+}
+
+.card-img-overlay {
+	margin: auto;
+	/* background-color: rgba(0,0,0,0.5); */
+}
+
+.card-title, .card-text {
+	color:white;
+	text-shadow:
+        black 1px 1px 0, black -1px -1px 0,/*右下、左上*/
+        black -1px 1px 0, black 1px -1px 0,/*右上、左下*/
+        black 0px 1px 0, black  0-1px 0,/*右、左*/
+        black -1px 0 0, black 1px 0 0;/*上、下*/
+}
+
+.card-img, .card-img-top{
+	height:450px;
+	width:100%;
+	object-fit: cover;
+	object-position: top;
+}
+
+img,iframe {
+	max-width: 100%;
 }
