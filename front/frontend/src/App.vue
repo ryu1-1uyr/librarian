@@ -3,9 +3,9 @@
     <div>
       <ul>
         <li>
-          <a href="#/"><img style="max-width: 50px" src="./assets/logo.png"></a>
-          <a href="#/register">登録</a>
-          <a href="#/show">閲覧</a>
+          <a href="#/"><img style="max-width: 50px" src="./assets/name.png"></a>
+          <a href="#/register"><img src="./assets/pen.png" style="max-width: 50px"></a>
+          <a href="#/show"><img src="./assets/note.png" style="max-width: 50px"></a>
         </li>
       </ul>
     </div>
@@ -32,8 +32,14 @@ export default {
 }
   li{
     list-style: none;
+    text-decoration: none;
   }
   ul{
     list-style: none;
+    text-decoration: none;
+  }
+  a{
+    text-decoration: none;
+    padding: 10px;
   }
 </style>
