@@ -2,9 +2,17 @@ body {
 	width:750px;
 }
 
-.container, .container-fluid {
+#test.container-fluid {
 	background-color: gray;
 }
+
+#head.container-fluid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#47266e
+}
+
 
 h1 {
 	color: white;
