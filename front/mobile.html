@@ -37,7 +37,7 @@
         </header>
       </div>
 
-      <div id="test" class="container-fluid">
+      <div id="test" class="container-fluid pt-2">
         <div class="row">
           <div class="col-6 col-md my-2">
             <div class="card float-right" style="width: 20rem;">
@@ -122,9 +122,9 @@
 </v-ons-fab>
 
 <footer class="fixed-bottom">
-  <h2 class="text-center" style="font-weight:bold; text-decoration:underline; color:red;">
+  <h1 id="edge" class="text-center" style="font-size: 2.8rem;font-weight:bold; text-decoration:underline; color:red;">
     {{sumPrice}}円分の本!!
-  </h2>
+  </h1>
 </footer>
 
 <!-- <v-ons-dialog
@@ -196,7 +196,7 @@ let app = new Vue({
         axios.get(app.url + app.query)
         .then( (res) => {
           app.books[app.counter].title.push(res.data.items[0].volumeInfo.title)
-          app.books[app.counter].author = res.data.items[0].volumeInfo.authors || ["名称不定"]
+          app.books[app.counter].author = res.data.items[0].volumeInfo.authors || [""]
           app.books[app.counter].description = res.data.items[0].volumeInfo.description
 
 
