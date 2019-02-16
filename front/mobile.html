@@ -37,8 +37,8 @@
           <img class="p-4" style="margin:0; width:25rem;" src="./image/logoL.png">
       </div>
     </header>
-
-      <div id="test" class="container-fluid pt-3">
+      
+      <div id="test" class="container-fluid pt-2" style="background-color: #777777">
         <div class="row">
           <div class="col-6 col-md my-2">
             <div class="card float-right" style="width: 20rem;">
@@ -223,6 +223,15 @@ let app = new Vue({
       }
     }
   });
+
+window.addEventListener('load',(()=>{
+    let hoge = document.getElementsByClassName('page__content')
+    console.log(hoge[0])
+
+}))
+
+
+
 </script>
 </body>
 </html>
