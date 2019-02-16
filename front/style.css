@@ -3,7 +3,8 @@ body {
 }
 
 #test.container-fluid {
-	background-color: gray;
+	/* background-color: gray; */
+	background-color: #efedf4;
 }
 
 #head.container-fluid {
