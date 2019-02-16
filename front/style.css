@@ -65,3 +65,6 @@ li {
 img,iframe {
 	max-width: 100%;
 }
+.page__content {
+	background-color: #777;
+}

@@ -6,14 +6,18 @@
 </template>
 
 <script>
-export default {
-  name: 'register',
-  data () {
-    return {
-      msg: 'register vue componets!!'
+  import axios from 'axios'
+  export default {
+    name: 'register',
+    data () {
+      return {
+        msg: 'register vue componets!!'
+      }
+    },
+    methods : {
+
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
